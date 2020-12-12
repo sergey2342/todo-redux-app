@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/todo-redux-app/static/css/main.c1d1bc64.chunk.css",
-    "main.js": "/todo-redux-app/static/js/main.50d31618.chunk.js",
-    "main.js.map": "/todo-redux-app/static/js/main.50d31618.chunk.js.map",
-    "runtime-main.js": "/todo-redux-app/static/js/runtime-main.ab29e821.js",
-    "runtime-main.js.map": "/todo-redux-app/static/js/runtime-main.ab29e821.js.map",
-    "static/js/2.dea9b51e.chunk.js": "/todo-redux-app/static/js/2.dea9b51e.chunk.js",
-    "static/js/2.dea9b51e.chunk.js.map": "/todo-redux-app/static/js/2.dea9b51e.chunk.js.map",
-    "static/js/3.bd2e997a.chunk.js": "/todo-redux-app/static/js/3.bd2e997a.chunk.js",
-    "static/js/3.bd2e997a.chunk.js.map": "/todo-redux-app/static/js/3.bd2e997a.chunk.js.map",
+    "main.css": "/todo-redux-app/static/css/main.fee16943.chunk.css",
+    "main.js": "/todo-redux-app/static/js/main.95ed1072.chunk.js",
+    "main.js.map": "/todo-redux-app/static/js/main.95ed1072.chunk.js.map",
+    "runtime-main.js": "/todo-redux-app/static/js/runtime-main.f65427ab.js",
+    "runtime-main.js.map": "/todo-redux-app/static/js/runtime-main.f65427ab.js.map",
+    "static/js/2.56f47b52.chunk.js": "/todo-redux-app/static/js/2.56f47b52.chunk.js",
+    "static/js/2.56f47b52.chunk.js.map": "/todo-redux-app/static/js/2.56f47b52.chunk.js.map",
+    "static/js/3.db27b954.chunk.js": "/todo-redux-app/static/js/3.db27b954.chunk.js",
+    "static/js/3.db27b954.chunk.js.map": "/todo-redux-app/static/js/3.db27b954.chunk.js.map",
     "index.html": "/todo-redux-app/index.html",
-    "static/css/main.c1d1bc64.chunk.css.map": "/todo-redux-app/static/css/main.c1d1bc64.chunk.css.map",
-    "static/js/2.dea9b51e.chunk.js.LICENSE.txt": "/todo-redux-app/static/js/2.dea9b51e.chunk.js.LICENSE.txt"
+    "static/css/main.fee16943.chunk.css.map": "/todo-redux-app/static/css/main.fee16943.chunk.css.map",
+    "static/js/2.56f47b52.chunk.js.LICENSE.txt": "/todo-redux-app/static/js/2.56f47b52.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/todo-redux-app/static/media/main-bg.c4af02aa.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ab29e821.js",
-    "static/js/2.dea9b51e.chunk.js",
-    "static/css/main.c1d1bc64.chunk.css",
-    "static/js/main.50d31618.chunk.js"
+    "static/js/runtime-main.f65427ab.js",
+    "static/js/2.56f47b52.chunk.js",
+    "static/css/main.fee16943.chunk.css",
+    "static/js/main.95ed1072.chunk.js"
   ]
 }
