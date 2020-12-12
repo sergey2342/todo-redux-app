@@ -1,10 +1,17 @@
 import React from 'react'
-import './App.scss'
+
+import Menu from '../Menu/Menu'
+import Content from '../Content/Content'
+import * as styles from './App.module.scss'
 
 const App = () => {
-  return (
-    <>hello</>
-  );
+
+    return (
+        <div className={styles.app}>    
+            <Menu />
+            <Content />
+        </div>
+    );
 }
 
 export default App

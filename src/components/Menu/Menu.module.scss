@@ -1,0 +1,10 @@
+.menu {
+    padding: 20px;
+    z-index: 1;
+    position: relative;
+
+    &_logo {
+        font-size: 25px;
+        font-weight: bold;
+    }
+}
