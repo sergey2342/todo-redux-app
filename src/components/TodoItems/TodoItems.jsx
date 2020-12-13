@@ -25,10 +25,10 @@ const MenuItems = () => {
                     ? <Srinner />
                     : error 
                         ? error.type === 'todos' 
-                            ? <div className="">{error.text}</div> 
+                            ? <div className={styles.todo_items_todo_alert}><span>{error.text}</span><span>{error.message}</span></div> 
                             : false 
                         : todos.length === 0 
-                            ? <div className="">Нет задач</div> 
+                            ? <div className={styles.todo_items_todo_alert}><span>Нет задач</span></div> 
                             : todos.map(item => {
                                 const { id, title, completed } = item
 
