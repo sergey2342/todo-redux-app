@@ -5,7 +5,7 @@ export const ADD_TODO = 'ADD_TODO'
 
 
 const initialState = {
-    loading: true,
+    loading: false,
     error: null,
     todos: []
 }
@@ -13,7 +13,6 @@ const initialState = {
 export const todosReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO_STARTED:
-            console.log('add')
             return { ...state, loading: true }
         case ADD_TODO_SUCCESS:
             return {
@@ -26,7 +25,7 @@ export const todosReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.payload.error
+                error: action.payload
             }
         case ADD_TODO:
             return state
