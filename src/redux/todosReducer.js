@@ -2,6 +2,7 @@ export const ADD_TODO_STARTED = 'ADD_TODO_STARTED'
 export const ADD_TODO_SUCCESS = 'ADD_TODO_SUCCESS'
 export const ADD_TODO_FAILURE = 'ADD_TODO_FAILURE'
 export const ADD_TODO = 'ADD_TODO'
+export const CHECKED_TODO = 'CHECKED_TODO'
 
 
 const initialState = {
@@ -26,6 +27,16 @@ export const todosReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case CHECKED_TODO:
+            const index = state.todos.findIndex(item => item.id === action.payload.id),
+                  old = state.todos[index],
+                  newItem = {...old, completed : !old.completed},
+                  newArr = [...state.todos.slice(0, index), newItem, ...state.todos.slice(index + 1)];
+                  
+            return {
+                ...state,
+                todos: newArr
             }
         case ADD_TODO:
             return state

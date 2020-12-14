@@ -1,21 +1,25 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Srinner from '../Spinner/Spinner'
 import { completeTodo } from '../../assets/icons'
 import * as styles from './TodoItems.module.scss'
- 
+import { checkedTodo } from '../../services/api'
+
+
 const MenuItems = () => {
     const { path } = useParams()
 
+    const dispatch = useDispatch()
     let todos = useSelector(state => state.todos.todos)
     const loading = useSelector(state => state.todos.loading)
     const error = useSelector(state => state.todos.error)
 
     if(path === 'complete') {
         todos = todos.filter(item => item.completed)
-    }
+    } 
+
 
     return (
         <>
@@ -23,10 +27,8 @@ const MenuItems = () => {
                 {
                     loading
                     ? <Srinner />
-                    : error 
-                        ? error.type === 'todos' 
-                            ? <div className={styles.todo_items_todo_alert}><span>{error.text}</span><span>{error.message}</span></div> 
-                            : false 
+                    : error && error.type === 'getTodos'
+                        ? <div className={styles.todo_items_todo_alert}><span>{error.text}</span><span>{error.message}</span></div> 
                         : todos.length === 0 
                             ? <div className={styles.todo_items_todo_alert}><span>Нет задач</span></div> 
                             : todos.map(item => {
@@ -35,7 +37,7 @@ const MenuItems = () => {
                                 return (
                                     <div className={styles.todo_items_todo} key={id}>
                                         <div className={styles.todo_items_todo_checkbox}>
-                                            <input id={id} type="checkbox" checked={completed ? true : false} readOnly/>
+                                            <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => checkedTodo(dispatch, item)}/>
                                             <label htmlFor={id}>{completeTodo}</label>
                                         </div>
                                         <div className={styles.todo_items_todo_title}>{title}</div>
