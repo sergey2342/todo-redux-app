@@ -26,7 +26,7 @@ const Menu = () => {
             <button 
                 type="button" 
                 className={styles.menu_load}
-                onClick={() => getTodos(dispatch)}
+                onClick={() => dispatch(getTodos)}
             >Загрузить задачи</button>
         </div>
     )

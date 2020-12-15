@@ -24,7 +24,7 @@ export const getTodos = dispatch => {
         })
 }
 
-export const checkedTodo = (dispatch, item) => {
+export const checkedTodo = item => dispatch => {
     axios.patch(`https://jsonplaceholder.typicode.com/todos/${item.id}`, {...item, completed: !item.completed })
         .then(({ data }) => dispatch({ type: CHECKED_TODO, payload: data }))
         .catch(error => {

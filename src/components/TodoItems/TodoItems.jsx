@@ -37,7 +37,7 @@ const MenuItems = () => {
                                 return (
                                     <div className={styles.todo_items_todo} key={id}>
                                         <div className={styles.todo_items_todo_checkbox}>
-                                            <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => checkedTodo(dispatch, item)}/>
+                                            <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => dispatch(checkedTodo(item))}/>
                                             <label htmlFor={id}>{completeTodo}</label>
                                         </div>
                                         <div className={styles.todo_items_todo_title}>{title}</div>
