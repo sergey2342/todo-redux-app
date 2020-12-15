@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Srinner from '../Spinner/Spinner'
 import { completeTodo } from '../../assets/icons'
 import * as styles from './TodoItems.module.scss'
-import { checkedTodo } from '../../services/api'
+import { checkedTodoThunk } from '../../redux/todosReducer'
 
 
 const MenuItems = () => {
@@ -37,7 +37,7 @@ const MenuItems = () => {
                                 return (
                                     <div className={styles.todo_items_todo} key={id}>
                                         <div className={styles.todo_items_todo_checkbox}>
-                                            <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => dispatch(checkedTodo(item))}/>
+                                            <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => dispatch(checkedTodoThunk(item))}/>
                                             <label htmlFor={id}>{completeTodo}</label>
                                         </div>
                                         <div className={styles.todo_items_todo_title}>{title}</div>

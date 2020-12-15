@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux'
 
 import * as styles from './Menu.module.scss'
 import { allTodos, completeAll } from '../../assets/icons'
-import { getTodos } from '../../services/api'
+import { getTodosThunk } from '../../redux/todosReducer'
+
 
 function MenuListItem({label, icon, to, activeOnlyWhenExact }) {
     const match = useRouteMatch({ path: to, exact: activeOnlyWhenExact });
@@ -26,7 +27,7 @@ const Menu = () => {
             <button 
                 type="button" 
                 className={styles.menu_load}
-                onClick={() => dispatch(getTodos)}
+                onClick={() => dispatch(getTodosThunk)}
             >Загрузить задачи</button>
         </div>
     )
