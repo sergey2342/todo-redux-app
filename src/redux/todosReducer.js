@@ -1,4 +1,5 @@
 import getApi, { CreateError } from '../services/api'
+import { nanoid } from 'nanoid'
  
 
 export const ADD_TODO_STARTED = 'ADD_TODO_STARTED'
@@ -17,7 +18,7 @@ const initialState = {
 export const todosReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TODO_STARTED:
-            return { ...state, loading: true }
+            return { ...state, loading: action.payload }
         case ADD_TODO_SUCCESS:
             return {
                 ...state,
@@ -39,10 +40,16 @@ export const todosReducer = (state = initialState, action) => {
                   
             return {
                 ...state,
+                loading: false,
                 todos: newArr
             }
         case ADD_TODO:
-            return state
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                todos: [...state.todos, action.payload]
+            }
         default:
             return state
     }
@@ -51,8 +58,7 @@ export const todosReducer = (state = initialState, action) => {
 
 
 export const getTodosThunk = dispatch => {
-    dispatch({ type: ADD_TODO_STARTED })
-
+    dispatch({ type: ADD_TODO_STARTED, payload: { type: 'getTodos'}})
     getApi.getTodos()
         .then(({ data }) => dispatch({ type: ADD_TODO_SUCCESS, payload: data }))
         .catch(error => {
@@ -62,10 +68,27 @@ export const getTodosThunk = dispatch => {
 }
 
 export const checkedTodoThunk = item => dispatch => {
+    dispatch({ type: ADD_TODO_STARTED, payload: { type: 'checkedTodos', id: item.id }})
     getApi.checkedTodo(item)
         .then(({ data }) => dispatch({ type: CHECKED_TODO, payload: data }))
         .catch(error => {
             dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'checkedTodos', message: error.message, text: 'Ошибка отправки данных' }})
             throw new CreateError(error, 'Ошибка отправки данных')
+        })
+}
+
+export const addTodoThunk = item => dispatch => {
+    dispatch({ type: ADD_TODO_STARTED, payload: { type: 'addTodo'}})
+    const newTodo = {
+        userId: 1,
+        id: nanoid(),
+        title: item,
+        completed: false
+    }
+    getApi.addTodo(newTodo)
+        .then(({ data }) => dispatch({ type: ADD_TODO, payload: data }))
+        .catch(error => {
+            dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'addTodo', message: error.message, text: 'Ошибка добавления задачи' }})
+            throw new CreateError(error, 'Ошибка добавления задачи')
         })
 }

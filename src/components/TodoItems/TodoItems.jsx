@@ -25,7 +25,7 @@ const MenuItems = () => {
         <>
             <div className={styles.todo_items_list}>
                 {
-                    loading
+                    loading && loading.type === 'getTodos'
                     ? <Srinner />
                     : error && error.type === 'getTodos'
                         ? <div className={styles.todo_items_todo_alert}><span>{error.text}</span><span>{error.message}</span></div> 
@@ -37,6 +37,7 @@ const MenuItems = () => {
                                 return (
                                     <div className={styles.todo_items_todo} key={id}>
                                         <div className={styles.todo_items_todo_checkbox}>
+                                            {loading && loading.type === 'checkedTodos' && id === loading.id && <Srinner />}
                                             <input id={id} type="checkbox" checked={completed ? true : false} onChange={() => dispatch(checkedTodoThunk(item))}/>
                                             <label htmlFor={id}>{completeTodo}</label>
                                         </div>

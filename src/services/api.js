@@ -9,7 +9,8 @@ export function CreateError(error, text) {
 
 const getApi = {
     getTodos: () => instance.get('todos/'),
-    checkedTodo: item => instance.put(`todos/${item.id}`, {...item, completed: !item.completed })
+    checkedTodo: item => instance.put(`todos/${item.id}`, {...item, completed: !item.completed }),
+    addTodo: item => instance.post('todos/', item)
 }
 
 export default getApi
