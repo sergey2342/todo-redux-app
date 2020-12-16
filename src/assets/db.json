@@ -1,5 +1,19 @@
 {
-    "todos": [
-        { "id": "JOTDKCQpSd4z7DsgDDbDG", "title": "First", "completed": false }
-    ]
+  "todos": [
+    {
+      "id": "aUyRnhzz8DYxL6HFPT9Oa",
+      "title": "First",
+      "completed": true
+    },
+    {
+      "id": "oveM6wRtXUJcW22fH5_0Q",
+      "title": "Second",
+      "completed": false
+    },
+    {
+      "id": "uQRY4l6uut1pcTDFAWDy-",
+      "title": "Third",
+      "completed": true
+    }
+  ]
 }

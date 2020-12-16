@@ -13,4 +13,5 @@
     display: grid;
     grid-template-columns: 250px 1fr;
     background: rgba(238, 238, 238, .25);
+    backdrop-filter: blur(10px);
 }

@@ -7,6 +7,7 @@ export const ADD_TODO_SUCCESS = 'ADD_TODO_SUCCESS'
 export const ADD_TODO_FAILURE = 'ADD_TODO_FAILURE'
 export const ADD_TODO = 'ADD_TODO'
 export const CHECKED_TODO = 'CHECKED_TODO'
+export const REMOVE_TODO = 'REMOVE_TODO'
 
 
 const initialState = {
@@ -40,6 +41,7 @@ export const todosReducer = (state = initialState, action) => {
                   
             return {
                 ...state,
+                error: null,
                 loading: false,
                 todos: newArr
             }
@@ -49,6 +51,13 @@ export const todosReducer = (state = initialState, action) => {
                 loading: false,
                 error: null,
                 todos: [...state.todos, action.payload]
+            }
+        case REMOVE_TODO:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                todos: state.todos.filter(todo => todo.id !== action.payload)
             }
         default:
             return state
@@ -80,7 +89,6 @@ export const checkedTodoThunk = item => dispatch => {
 export const addTodoThunk = item => dispatch => {
     dispatch({ type: ADD_TODO_STARTED, payload: { type: 'addTodo'}})
     const newTodo = {
-        userId: 1,
         id: nanoid(),
         title: item,
         completed: false
@@ -90,5 +98,15 @@ export const addTodoThunk = item => dispatch => {
         .catch(error => {
             dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'addTodo', message: error.message, text: 'Ошибка добавления задачи' }})
             throw new CreateError(error, 'Ошибка добавления задачи')
+        })
+}
+
+export const removeTodoThunk = id => dispatch => {
+    dispatch({ type: ADD_TODO_STARTED, payload: { type: 'removeTodo'}})
+    getApi.removeTodo(id)
+        .then(() => dispatch({ type: REMOVE_TODO, payload: id }))
+        .catch(error => {
+            dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'removeTodo', message: error.message, text: 'Ошибка удаления задачи' }})
+            throw new CreateError(error, 'Ошибка удаления задачи')
         })
 }

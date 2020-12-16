@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Srinner from '../Spinner/Spinner'
-import { completeTodo } from '../../assets/icons'
+import { completeTodo, deleteTodo } from '../../assets/icons'
 import * as styles from './TodoItems.module.scss'
-import { checkedTodoThunk } from '../../redux/todosReducer'
+import { checkedTodoThunk, removeTodoThunk } from '../../redux/todosReducer'
 
 
 const MenuItems = () => {
@@ -42,6 +42,7 @@ const MenuItems = () => {
                                             <label htmlFor={id}>{completeTodo}</label>
                                         </div>
                                         <div className={styles.todo_items_todo_title}>{title}</div>
+                                        <div className={styles.todo_items_todo_close} onClick={() => dispatch(removeTodoThunk(item.id))}>{deleteTodo}</div>
                                     </div>
                                 )
                             })
