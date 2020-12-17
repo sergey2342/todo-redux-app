@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/todo-redux-app/static/css/main.56ce09ab.chunk.css",
-    "main.js": "/todo-redux-app/static/js/main.b89b65e8.chunk.js",
-    "main.js.map": "/todo-redux-app/static/js/main.b89b65e8.chunk.js.map",
-    "runtime-main.js": "/todo-redux-app/static/js/runtime-main.68ecb7a7.js",
-    "runtime-main.js.map": "/todo-redux-app/static/js/runtime-main.68ecb7a7.js.map",
-    "static/js/2.8f67ac35.chunk.js": "/todo-redux-app/static/js/2.8f67ac35.chunk.js",
-    "static/js/2.8f67ac35.chunk.js.map": "/todo-redux-app/static/js/2.8f67ac35.chunk.js.map",
-    "static/js/3.5a5dd273.chunk.js": "/todo-redux-app/static/js/3.5a5dd273.chunk.js",
-    "static/js/3.5a5dd273.chunk.js.map": "/todo-redux-app/static/js/3.5a5dd273.chunk.js.map",
+    "main.js": "/todo-redux-app/static/js/main.9eb7baaf.chunk.js",
+    "main.js.map": "/todo-redux-app/static/js/main.9eb7baaf.chunk.js.map",
+    "runtime-main.js": "/todo-redux-app/static/js/runtime-main.8381c1ea.js",
+    "runtime-main.js.map": "/todo-redux-app/static/js/runtime-main.8381c1ea.js.map",
+    "static/js/2.d8829b05.chunk.js": "/todo-redux-app/static/js/2.d8829b05.chunk.js",
+    "static/js/2.d8829b05.chunk.js.map": "/todo-redux-app/static/js/2.d8829b05.chunk.js.map",
+    "static/js/3.e6728241.chunk.js": "/todo-redux-app/static/js/3.e6728241.chunk.js",
+    "static/js/3.e6728241.chunk.js.map": "/todo-redux-app/static/js/3.e6728241.chunk.js.map",
     "index.html": "/todo-redux-app/index.html",
     "static/css/main.56ce09ab.chunk.css.map": "/todo-redux-app/static/css/main.56ce09ab.chunk.css.map",
-    "static/js/2.8f67ac35.chunk.js.LICENSE.txt": "/todo-redux-app/static/js/2.8f67ac35.chunk.js.LICENSE.txt",
+    "static/js/2.d8829b05.chunk.js.LICENSE.txt": "/todo-redux-app/static/js/2.d8829b05.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/todo-redux-app/static/media/audi_a4.d286d668.jpg",
     "static/media/spinner.7689471a.svg": "/todo-redux-app/static/media/spinner.7689471a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.68ecb7a7.js",
-    "static/js/2.8f67ac35.chunk.js",
+    "static/js/runtime-main.8381c1ea.js",
+    "static/js/2.d8829b05.chunk.js",
     "static/css/main.56ce09ab.chunk.css",
-    "static/js/main.b89b65e8.chunk.js"
+    "static/js/main.9eb7baaf.chunk.js"
   ]
 }
