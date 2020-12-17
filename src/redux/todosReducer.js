@@ -1,5 +1,4 @@
 import getApi, { CreateError } from '../services/api'
-import { nanoid } from 'nanoid'
  
 
 export const ADD_TODO_STARTED = 'ADD_TODO_STARTED'
@@ -21,11 +20,19 @@ export const todosReducer = (state = initialState, action) => {
         case ADD_TODO_STARTED:
             return { ...state, loading: action.payload }
         case ADD_TODO_SUCCESS:
+            let newTodos
+            if(action.payload !== null) {
+                newTodos = Object.keys(action.payload).map(key => {
+                    return { ...action.payload[key], id: key }
+                })
+            } else {
+                newTodos = []
+            }
             return {
                 ...state,
                 loading: false,
                 error: null,
-                todos: action.payload
+                todos: newTodos
             }
         case ADD_TODO_FAILURE:
             return {
@@ -79,7 +86,7 @@ export const getTodosThunk = dispatch => {
 export const checkedTodoThunk = item => dispatch => {
     dispatch({ type: ADD_TODO_STARTED, payload: { type: 'checkedTodos', id: item.id }})
     getApi.checkedTodo(item)
-        .then(({ data }) => dispatch({ type: CHECKED_TODO, payload: data }))
+        .then(() => dispatch({ type: CHECKED_TODO, payload: item }))
         .catch(error => {
             dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'checkedTodos', message: error.message, text: 'Ошибка отправки данных' }})
             throw new CreateError(error, 'Ошибка отправки данных')
@@ -88,13 +95,9 @@ export const checkedTodoThunk = item => dispatch => {
 
 export const addTodoThunk = item => dispatch => {
     dispatch({ type: ADD_TODO_STARTED, payload: { type: 'addTodo'}})
-    const newTodo = {
-        id: nanoid(),
-        title: item,
-        completed: false
-    }
+    const newTodo = { title: item, completed: false }
     getApi.addTodo(newTodo)
-        .then(({ data }) => dispatch({ type: ADD_TODO, payload: data }))
+        .then(({ data }) => dispatch({ type: ADD_TODO, payload: {...newTodo, id: data.name} }))
         .catch(error => {
             dispatch({ type: ADD_TODO_FAILURE, payload: { type: 'addTodo', message: error.message, text: 'Ошибка добавления задачи' }})
             throw new CreateError(error, 'Ошибка добавления задачи')

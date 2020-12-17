@@ -1,8 +1,6 @@
 import * as axios from 'axios'
 
-// const instance = axios.create({ baseURL: 'https://jsonplaceholder.typicode.com/' })
-// https://my-json-server.typicode.com/sergey2342/todo-redux-app-db/
-const instance = axios.create({ baseURL: 'http://localhost:3001/' })
+const instance = axios.create({ baseURL: 'https://todo-redux-app-575be-default-rtdb.firebaseio.com' })
 
 export function CreateError(error, text) {
     this.message = error.message
@@ -10,10 +8,10 @@ export function CreateError(error, text) {
 }
 
 const getApi = {
-    getTodos: () => instance.get('todos/'),
-    checkedTodo: item => instance.put(`todos/${item.id}`, {...item, completed: !item.completed }),
-    addTodo: item => instance.post('todos/', item),
-    removeTodo: id => instance.delete(`todos/${id}`)
+    getTodos: () => instance.get('/todos.json'),
+    checkedTodo: item => instance.put(`/todos/${item.id}.json`, {title: item.title, completed: !item.completed }),
+    addTodo: item => instance.post('/todos.json', item),
+    removeTodo: id => instance.delete(`/todos/${id}.json`)
 }
 
 export default getApi
